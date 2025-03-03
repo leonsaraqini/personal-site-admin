@@ -42,13 +42,16 @@ async function getProjects() {
 
             // Create list item for drag-and-drop
             const listItem = document.createElement("li");
-            listItem.dataset.id = projectId; // Store document ID in dataset
+            listItem.dataset.id = projectId;
+            listItem.className = "list-group-item d-flex justify-content-between align-items-center shadow-sm p-3";
+
             listItem.innerHTML = `
-                <p><a href="${obj.link}" target="_blank">${obj.title}</a></p>
-                <p><strong>Created With:</strong> ${obj.createdWith}</p>
-                <p class="projectDescription">${obj.description}</p>
-                <button onclick="deleteProject('${projectId}')">🗑 Delete</button>
-                <hr>
+                <div>
+                    <h5><a href="${obj.link}" target="_blank">${obj.title}</a></h5>
+                    <p><strong>Created With:</strong> ${obj.createdWith}</p>
+                    <p class="small">${obj.description}</p>
+                </div>
+                <button class="btn btn-danger btn-sm" onclick="deleteProject('${projectId}')">🗑 Delete</button>
             `;
 
             projectsContainer.appendChild(listItem);
@@ -143,9 +146,6 @@ function enableDragAndDrop() {
     });
 }
 
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
 
 // Attach event listener to form
 document.getElementById("projectForm").addEventListener("submit", addProject);

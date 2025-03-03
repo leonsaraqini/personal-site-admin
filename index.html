@@ -11,23 +11,65 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
 </head>
-<body>
+<body class="bg-light">
 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- Navbar Brand -->
+            <a class="navbar-brand" href="#">Personal-Site-Admin</a>
     
-    <h1>Add a New Project</h1>
-
+            <!-- Logout Button (Visible on Mobile Only) -->
+            <button id="logoutButtonMobile" class="btn btn-outline-danger d-lg-none">🚪 Logout</button>
     
+            <!-- Navbar Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Collapsible Navbar Content -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <!-- Logout Button (Visible on Large Screens) -->
+                <button id="logoutButton" class="btn btn-outline-danger d-none d-lg-block">🚪 Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <div class="container mt-5">
 
-    <form id="projectForm">
-        <label>Title: <input type="text" id="title" required></label><br>
-        <label>Link: <input type="url" id="link" required></label><br>
-        <label>Created With: <input type="text" id="createdWith" required></label><br>
-        <label>Description: <textarea id="description" required></textarea></label><br>
-        <button type="submit">Add Project</button>
-    </form>
+        <!-- Project Form -->
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center mb-4">Add a Project</h2>
 
-    <h2>Projects List</h2>
-    <ul id="projects"></ul>
+            <form id="projectForm">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter project title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="link" class="form-label">Project Link:</label>
+                    <input type="url" class="form-control" id="link" placeholder="Enter project URL" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="createdWith" class="form-label">Created With:</label>
+                    <input type="text" class="form-control" id="createdWith" placeholder="Technologies used" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Brief description of the project" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Add Project</button>
+            </form>
+        </div>
+
+        <!-- Projects List -->
+        <h2 class="text-center mt-5">Projects List</h2>
+        <ul id="projects" class="list-group mt-3"></ul>
+    </div>
     
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
